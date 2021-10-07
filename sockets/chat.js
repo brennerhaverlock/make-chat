@@ -17,6 +17,15 @@ module.exports = (io, socket, onlineUsers) => {
         io.to(data.channel).emit('new message', data);
     })
 
+    //Have the socket join the room of the channel
+    socket.on('user changed channel', (newChannel) => {
+        socket.join(newChannel);
+        socket.emit('user changed channel', {
+        channel : newChannel,
+        messages : channels[newChannel]
+        });
+    });
+
     socket.on('get online users', () => {
         //Send over the onlineUsers
         socket.emit('get online users', onlineUsers);
