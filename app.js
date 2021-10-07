@@ -21,9 +21,8 @@ const io = require('socket.io')(server);
 let onlineUsers = {};
 io.on("connection", (socket) => {
   console.log("🔌 New user connected! 🔌");
-  require('./sockets/chat.js')(io, socket, onlineUsers);
+  require('./sockets/chat.js')(io, socket, onlineUsers, channels);
 })
-
 
 server.listen('3000', () => {
   console.log('Server listening on Port 3000');
