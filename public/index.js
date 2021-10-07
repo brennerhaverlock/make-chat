@@ -104,10 +104,5 @@ $(document).ready(()=>{
           $('.users-online').append(`<div class="user-online">${username}</div>`);
         }
       })
-
-
-      
-
-      
   
   })

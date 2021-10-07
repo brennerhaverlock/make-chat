@@ -3,11 +3,10 @@ const express = require('express');
 const app = express();
 const server = require('http').Server(app);
 const exphbs  = require('express-handlebars');
-var handlebars = require('express-handlebars').create({extname: '.hbs'});
 
 //Express View Engine for Handlebars
-app.engine('hbs', handlebars.engine);
-app.set('view engine', 'hbs');
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 //Establish your public folder
 app.use('/public/views', express.static('public'))
 
